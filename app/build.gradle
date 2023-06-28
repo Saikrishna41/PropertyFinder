@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'kotlin-android'
+    id 'realm-android'
 }
 
 android {
@@ -31,6 +33,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+
+    packagingOptions {
+        exclude "META-INF/LICENSE.md"
     }
 }
 
@@ -100,10 +106,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "com.squareup.okhttp3:logging-interceptor:4.11.0"
 
-
+    //core testing
     implementation 'androidx.arch.core:core-testing:2.2.0'
     androidTestImplementation 'androidx.arch.core:core-testing:2.2.0'
 
+    //google truth
     testImplementation "com.google.truth:truth:1.1.4"
     androidTestImplementation "com.google.truth:truth:1.1.4"
+
+    //realm
+    implementation 'io.realm:realm-gradle-plugin:10.11.1'
 }
